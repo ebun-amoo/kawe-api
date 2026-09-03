@@ -11,13 +11,20 @@ const loginUserController = async (req: Request, res: Response) => {
 
   const { email, password} = validationResult.data;
 
-  const response = await loginUserService({ email, password });
+  const result = await loginUserService({ email, password });
 
-  if (!response.success) {
-    return res.status(401).json(response);
+  if (!result.response.success) {
+    return res.status(401).json(result.response);
   } 
 
-  return res.status(200).json(response);
+  res.cookie("refreshToken", result.refreshToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+  });
+
+  return res.status(200).json(result.response);
 };
 
 export default loginUserController;
