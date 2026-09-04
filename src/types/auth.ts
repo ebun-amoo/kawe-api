@@ -50,3 +50,7 @@ export interface AuthenticatedUser {
   id: string;
   role: UserRole;
 }
+
+export type PublicUser = Omit <RegisterUserResponse, "id"> & {
+  role: UserRole
+}
