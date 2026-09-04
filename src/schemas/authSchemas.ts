@@ -1,4 +1,5 @@
 import * as z from "zod";
+import { UserRole } from "../generated/prisma/enums";
 
 export const registerSchema = z.object({
   firstName: z.string().trim().min(1, {
@@ -26,4 +27,11 @@ export const loginSchema = z.object({
     }).regex(/[^a-zA-Z0-9]/, {
       message: "Password must include at least one special character",
     })
+});
+
+export const payloadSchema = z.object({
+  sub: z.uuid({
+    message: "Invalid id"
+  }),
+  role: z.enum(UserRole)
 });

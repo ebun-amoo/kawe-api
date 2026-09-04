@@ -1,7 +1,7 @@
 import prisma from "../../lib/prisma";
 import { generateRefreshToken, hashRefreshToken } from "../../utils/refreshTokenUtils";
 import { generateAccessToken } from "../../utils/tokenUtils";
-import { LoginServiceResult, LoginUserInput } from '../types';
+import { LoginServiceResult, LoginUserInput } from '../../types/auth';
 import bcrypt from 'bcrypt';
 
 const loginUserService = async({ email, password }: LoginUserInput): Promise<LoginServiceResult> => {

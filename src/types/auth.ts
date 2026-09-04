@@ -40,7 +40,13 @@ export type LoginUserResponse = RegisterUserResponse & {
   accessToken: string;
   role: UserRole;
 }
+
 export type LoginServiceResult = {
   response: BaseResponse<LoginUserResponse>;
   refreshToken: string | null;
-};
+}
+
+export interface AuthenticatedUser {
+  id: string;
+  role: UserRole;
+}

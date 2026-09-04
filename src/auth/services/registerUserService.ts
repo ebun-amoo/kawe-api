@@ -1,5 +1,5 @@
 import prisma from "../../lib/prisma";
-import { BaseResponse, RegisterUserInput, RegisterUserResponse } from '../types';
+import { BaseResponse, RegisterUserInput, RegisterUserResponse } from '../../types/auth';
 import bcrypt from "bcrypt";
 
 const SALT_ROUNDS = 12;
