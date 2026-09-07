@@ -5,7 +5,7 @@ import authRoutes from "./auth/authRoutes";
 import cookieParser from "cookie-parser";
 import authMiddleWare from "./middleware/authMiddleware";
 import userRoutes from "./user/userRoutes";
-import requireRole from "./middleware/requireRole";
+import lessonRoutes from "./lesson/lessonRoutes";
 
 const app = express();
 
@@ -26,7 +26,6 @@ app.get("/health", (_req, res) => {
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/user", authMiddleWare, userRoutes);
-app.get("/api/v1/admin/test", authMiddleWare, requireRole('ADMIN'));
-app.get("/api/v1/instructor/test", authMiddleWare, requireRole('INSTRUCTOR'));
+app.use("/api/v1/lessons", authMiddleWare, lessonRoutes);
 
 export default app;
