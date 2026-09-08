@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import authMiddleWare from "./middleware/authMiddleware";
 import userRoutes from "./user/userRoutes";
 import lessonRoutes from "./lesson/lessonRoutes";
+import errorHandler from "./middleware/errorHandler";
 
 const app = express();
 
@@ -28,4 +29,5 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/user", authMiddleWare, userRoutes);
 app.use("/api/v1/lessons", authMiddleWare, lessonRoutes);
 
+app.use(errorHandler);
 export default app;

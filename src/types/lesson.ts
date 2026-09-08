@@ -20,3 +20,11 @@ export interface Lesson {
   isPublished: boolean,
   createdById: string
 };
+
+export interface LessonListItem {
+  id: string,
+  title: string, 
+  summary: string, 
+  level: LessonLevel, 
+  orderIndex: number
+}
