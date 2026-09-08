@@ -27,4 +27,18 @@ export interface LessonListItem {
   summary: string, 
   level: LessonLevel, 
   orderIndex: number
-}
+};
+
+export interface updateLessonInput {
+  lessonId: string,
+  title?: string, 
+  summary?: string, 
+  content?: string, 
+  level?: LessonLevel, 
+  orderIndex?: number
+};
+
+export interface publishLessonInput {
+  lessonId: string,
+  isPublished: boolean
+};
