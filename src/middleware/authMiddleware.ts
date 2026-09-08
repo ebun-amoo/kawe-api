@@ -1,6 +1,6 @@
 import { Response, Request, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import { payloadSchema } from "../../schemas/authSchemas";
+import { payloadSchema } from "../schemas/authSchemas";
 const JWT_ACCESS_SECRET = process.env.JWT_ACCESS_SECRET;
 
 if (!JWT_ACCESS_SECRET) {
